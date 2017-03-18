@@ -1,16 +1,9 @@
-# WHMCS Sample Registrar Module #
+# WHMCS CentralNic Registrar Module #
 
 ## Summary ##
 
-Registrar Modules allow you to create modules that allow for the
-registration and management of domain names in WHMCS.
+This module for WHMCS is a fork of the WHMCS Sample Registrar Module and adapted for the CentralNic Domain Registrar.
 
-The sample files here demonstrates how a registrar module for WHMCS should
-be structured and exercises all supported functionality.
-
-For more information, please refer to the documentation at:
-
-http://docs.whmcs.com/Registrar_Module_Developer_Docs
 
 ## Getting Started
 
