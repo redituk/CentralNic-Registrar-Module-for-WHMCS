@@ -53,11 +53,11 @@ use WHMCS\Module\Registrar\Registrarmodule\ApiClient;
  *
  * @return array
  */
-function registrarmodule_MetaData()
+function centralnic_MetaData()
 {
     return array(
-        'DisplayName' => 'Sample Registrar Module for WHMCS',
-        'APIVersion' => '1.1',
+        'DisplayName' => 'CentralNic Registrar Module for WHMCS written by redIT',
+        'APIVersion' => '0.1',
     );
 }
 
