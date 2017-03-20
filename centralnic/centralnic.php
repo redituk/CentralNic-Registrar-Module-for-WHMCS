@@ -79,13 +79,17 @@ function centralnic_MetaData()
  *
  * @return array
  */
-function registrarmodule_getConfigArray()
+function centralnic_getConfigArray()
 {
     return array(
         // Friendly display name for the module
         'FriendlyName' => array(
             'Type' => 'System',
-            'Value' => 'Sample Registrar Module for WHMCS',
+            'Value' => 'CentralNic',
+        ),
+        "Description" => array(
+            "Type" => "System",
+            "Value" => "Registrar Module written by redIT"
         ),
         // a text field type allows for single line text input
         'API Username' => array(
