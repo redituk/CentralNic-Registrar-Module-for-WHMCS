@@ -1,17 +1,5 @@
 <?php
-
-#namespace WHMCS\Modules\Registrars\Centralnic;
-
-/**
- * Sample Registrar Module Simple API Client.
- *
- * A simple API Client for communicating with an external API endpoint.
- */
-class ApiClient
-{
-    const API_URL = 'https://www.example.com/api/1.0/';
-    const API_URL_TEST = 'https://www.test.example.com/api/1.0/';
-
+class ApiClient {
     protected $results = array();
 
     /**
@@ -25,15 +13,14 @@ class ApiClient
      *
      * @return array
      */
-    public function call($action, $postfields)
-    {
-        $ch = curl_init();
+    public function call($action, $postfields) {
+        var_dump($postfields);
+        $API_URL = 'epp.centralnic.com';
         if($postfields['testmode']=='on') {
-            curl_setopt($ch, CURLOPT_URL, self::API_URL_TEST . $action);
+            $API_URL = 'epp-ote.centralnic.com';
         }
-        else {
-            curl_setopt($ch, CURLOPT_URL, self::API_URL . $action);
-        }
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $API_URL . $action);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

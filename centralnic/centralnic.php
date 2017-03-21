@@ -1,66 +1,16 @@
 <?php
-/**
- * WHMCS SDK Sample Registrar Module
- *
- * Registrar Modules allow you to create modules that allow for domain
- * registration, management, transfers, and other functionality within
- * WHMCS.
- *
- * This sample file demonstrates how a registrar module for WHMCS should
- * be structured and exercises supported functionality.
- *
- * Registrar Modules are stored in a unique directory within the
- * modules/registrars/ directory that matches the module's unique name.
- * This name should be all lowercase, containing only letters and numbers,
- * and always start with a letter.
- *
- * Within the module itself, all functions must be prefixed with the module
- * filename, followed by an underscore, and then the function name. For
- * example this file, the filename is "registrarmodule.php" and therefore all
- * function begin "centralnic_".
- *
- * If your module or third party API does not support a given function, you
- * should not define the function within your module. WHMCS recommends that
- * all registrar modules implement Register, Transfer, Renew, GetNameservers,
- * SaveNameservers, GetContactDetails & SaveContactDetails.
- *
- * For more information, please refer to the online documentation.
- *
- * @see http://developers.whmcs.com/domain-registrars/
- *
- * @copyright Copyright (c) WHMCS Limited 2016
- * @license http://www.whmcs.com/license/ WHMCS Eula
- */
-
 if (!defined("WHMCS")) {
     die("This file cannot be accessed directly");
 }
-
 use WHMCS\Domains\DomainLookup\ResultsList;
 use WHMCS\Domains\DomainLookup\SearchResult;
 include 'ApiClient.php';
-
-// Require any libraries needed for the module to function.
-// require_once __DIR__ . '/path/to/library/loader.php';
-//
-// Also, perform any initialization required by the service's library.
-
-/**
- * Define module related metadata
- *
- * Provide some module information including the display name and API Version to
- * determine the method of decoding the input values.
- *
- * @return array
- */
-function centralnic_MetaData()
-{
+function centralnic_MetaData() {
     return array(
         'DisplayName' => 'CentralNic Registrar Module for WHMCS written by redIT',
         'APIVersion' => '1.1',
     );
 }
-
 function centralnic_getConfigArray() {
     return array(
         'FriendlyName' => array (
@@ -109,15 +59,13 @@ function centralnic_getConfigArray() {
  *
  * @return array
  */
-function centralnic_RegisterDomain($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_RegisterDomain($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // registration parameters
     $sld = $params['sld'];
@@ -275,15 +223,13 @@ function centralnic_RegisterDomain($params)
  *
  * @return array
  */
-function centralnic_TransferDomain($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_TransferDomain($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // registration parameters
     $sld = $params['sld'];
@@ -439,15 +385,13 @@ function centralnic_TransferDomain($params)
  *
  * @return array
  */
-function centralnic_RenewDomain($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_RenewDomain($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // registration parameters
     $sld = $params['sld'];
@@ -509,15 +453,14 @@ function centralnic_RenewDomain($params)
  *
  * @return array
  */
-function centralnic_GetNameservers($params)
-{
+function centralnic_GetNameservers($params) {
     // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -564,15 +507,13 @@ function centralnic_GetNameservers($params)
  *
  * @return array
  */
-function centralnic_SaveNameservers($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_SaveNameservers($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -625,15 +566,13 @@ function centralnic_SaveNameservers($params)
  *
  * @return array
  */
-function centralnic_GetContactDetails($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_GetContactDetails($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -730,15 +669,13 @@ function centralnic_GetContactDetails($params)
  *
  * @return array
  */
-function centralnic_SaveContactDetails($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_SaveContactDetails($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -816,15 +753,13 @@ function centralnic_SaveContactDetails($params)
  *
  * @return \WHMCS\Domains\DomainLookup\ResultsList An ArrayObject based collection of \WHMCS\Domains\DomainLookup\SearchResult results
  */
-function centralnic_CheckAvailability($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_CheckAvailability($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // availability check parameters
     $searchTerm = $params['searchTerm'];
@@ -926,15 +861,13 @@ function centralnic_DomainSuggestionOptions() {
  *
  * @return \WHMCS\Domains\DomainLookup\ResultsList An ArrayObject based collection of \WHMCS\Domains\DomainLookup\SearchResult results
  */
-function centralnic_GetDomainSuggestions($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_GetDomainSuggestions($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // availability check parameters
     $searchTerm = $params['searchTerm'];
@@ -1008,15 +941,13 @@ function centralnic_GetDomainSuggestions($params)
  *
  * @return string|array Lock status or error message
  */
-function centralnic_GetRegistrarLock($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_GetRegistrarLock($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1056,15 +987,13 @@ function centralnic_GetRegistrarLock($params)
  *
  * @return array
  */
-function centralnic_SaveRegistrarLock($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_SaveRegistrarLock($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1106,15 +1035,13 @@ function centralnic_SaveRegistrarLock($params)
  *
  * @return array DNS Host Records
  */
-function centralnic_GetDNS($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_GetDNS($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1159,15 +1086,13 @@ function centralnic_GetDNS($params)
  *
  * @return array
  */
-function centralnic_SaveDNS($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_SaveDNS($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1209,15 +1134,13 @@ function centralnic_SaveDNS($params)
  *
  * @return array
  */
-function centralnic_IDProtectToggle($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_IDProtectToggle($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1267,15 +1190,13 @@ function centralnic_IDProtectToggle($params)
  * @return array
  *
  */
-function centralnic_GetEPPCode($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_GetEPPCode($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1324,15 +1245,13 @@ function centralnic_GetEPPCode($params)
  *
  * @return array
  */
-function centralnic_ReleaseDomain($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_ReleaseDomain($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1374,15 +1293,13 @@ function centralnic_ReleaseDomain($params)
  *
  * @return array
  */
-function centralnic_RequestDelete($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_RequestDelete($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1422,15 +1339,13 @@ function centralnic_RequestDelete($params)
  *
  * @return array
  */
-function centralnic_RegisterNameserver($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_RegisterNameserver($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1476,15 +1391,13 @@ function centralnic_RegisterNameserver($params)
  *
  * @return array
  */
-function centralnic_ModifyNameserver($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_ModifyNameserver($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1530,15 +1443,13 @@ function centralnic_ModifyNameserver($params)
  *
  * @return array
  */
-function centralnic_DeleteNameserver($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_DeleteNameserver($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1584,15 +1495,13 @@ function centralnic_DeleteNameserver($params)
  *
  * @return array
  */
-function centralnic_Sync($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_Sync($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1636,15 +1545,13 @@ function centralnic_Sync($params)
  *
  * @return array
  */
-function centralnic_TransferSync($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_TransferSync($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1693,8 +1600,7 @@ function centralnic_TransferSync($params)
  *
  * @return array
  */
-function centralnic_ClientAreaCustomButtonArray()
-{
+function centralnic_ClientAreaCustomButtonArray() {
     return array(
         'Push Domain' => 'push',
     );
@@ -1708,8 +1614,7 @@ function centralnic_ClientAreaCustomButtonArray()
  *
  * @return array
  */
-function centralnic_ClientAreaAllowedFunctions()
-{
+function centralnic_ClientAreaAllowedFunctions() {
     return array(
         'Push Domain' => 'push',
     );
@@ -1724,15 +1629,13 @@ function centralnic_ClientAreaAllowedFunctions()
  *
  * @return array
  */
-function centralnic_push($params)
-{
-    // user defined configuration values
-    $userIdentifier = $params['API Username'];
-    $apiKey = $params['API Key'];
-    $testMode = $params['Test Mode'];
-    $accountMode = $params['Account Mode'];
-    $emailPreference = $params['Email Preference'];
-    $additionalInfo = $params['Additional Information'];
+function centralnic_push($params) {
+    $userIdentifier = $params['Username'];
+    $apiKey = $params['Password'];
+    $testMode = $params['TestMode'];
+//    $accountMode = $params['Account Mode'];
+//    $emailPreference = $params['Email Preference'];
+//    $additionalInfo = $params['Additional Information'];
 
     // domain parameters
     $sld = $params['sld'];
@@ -1755,8 +1658,7 @@ function centralnic_push($params)
  *
  * @return string HTML Output
  */
-function centralnic_ClientArea($params)
-{
+function centralnic_ClientArea($params) {
     $output = '
         <div class="alert alert-info">
             Your custom HTML output goes here...
