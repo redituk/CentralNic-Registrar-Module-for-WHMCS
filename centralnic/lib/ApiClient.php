@@ -10,6 +10,7 @@ namespace WHMCS\Module\Registrar\Registrarmodule;
 class ApiClient
 {
     const API_URL = 'https://www.example.com/api/1.0/';
+    const API_URL_TEST = 'https://www.test.example.com/api/1.0/';
 
     protected $results = array();
 
@@ -27,7 +28,12 @@ class ApiClient
     public function call($action, $postfields)
     {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, self::API_URL . $action);
+        if($postfields['testmode']=='on') {
+            curl_setopt($ch, CURLOPT_URL, self::API_URL_TEST . $action);
+        }
+        else {
+            curl_setopt($ch, CURLOPT_URL, self::API_URL . $action);
+        }
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
