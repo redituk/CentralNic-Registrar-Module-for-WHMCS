@@ -1,6 +1,6 @@
 <?php
 
-namespace WHMCS\Module\Registrar\Registrarmodule;
+#namespace WHMCS\Modules\Registrars\Centralnic;
 
 /**
  * Sample Registrar Module Simple API Client.
@@ -49,7 +49,7 @@ class ApiClient
         $this->results = $this->processResponse($response);
 
         logModuleCall(
-            'Registrarmodule',
+            'CentralNic Module',
             $action,
             $postfields,
             $response,

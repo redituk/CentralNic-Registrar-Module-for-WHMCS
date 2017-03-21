@@ -38,7 +38,7 @@ if (!defined("WHMCS")) {
 
 use WHMCS\Domains\DomainLookup\ResultsList;
 use WHMCS\Domains\DomainLookup\SearchResult;
-use WHMCS\Module\Registrar\Registrarmodule\ApiClient;
+include 'ApiClient.php';
 
 // Require any libraries needed for the module to function.
 // require_once __DIR__ . '/path/to/library/loader.php';
@@ -57,7 +57,7 @@ function centralnic_MetaData()
 {
     return array(
         'DisplayName' => 'CentralNic Registrar Module for WHMCS written by redIT',
-        'APIVersion' => '0.1',
+        'APIVersion' => '1.1',
     );
 }
 
