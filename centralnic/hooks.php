@@ -32,7 +32,7 @@
  * add_hook(string $hookPointName, int $priority, string|array|Closure $function)
  */
 add_hook('AdminHomeWidgets', 1, function() {
-    return new SampleRegistrarModuleWidget();
+    return new CentralNicModuleWidget();
 });
 
 /**
@@ -40,10 +40,10 @@ add_hook('AdminHomeWidgets', 1, function() {
  *
  * @see http://developers.whmcs.com/addon-modules/admin-dashboard-widgets/
  */
-class SampleRegistrarModuleWidget extends \WHMCS\Module\AbstractWidget
+class CentralNicModuleWidget extends \WHMCS\Module\AbstractWidget
 {
-    protected $title = 'Sample Registrar Module';
-    protected $description = '';
+    protected $title = 'CentralNic Registrar Module';
+    protected $description = 'Registrar Module written by redIT';
     protected $weight = 150;
     protected $columns = 1;
     protected $cache = false;
